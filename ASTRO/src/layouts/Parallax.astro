@@ -1,0 +1,135 @@
+---
+import Link from "../components/Link.astro";
+---
+
+<!--
+Parallax.astro
+Tailwind-based layout recreated from PROJECT-2/index
+- Uses Tailwind utility classes instead of the original inline styles
+- Keeps the original parallax.js data attributes on the parallax elements
+- Renders the newsletter + follow footer via the Footer component
+Notes: Ensure Tailwind and Remixicon are available in the project and the referenced
+images (pl-11.jpg, pl-2.jpg, etc.) are in the site's `public/` folder.
+-->
+<div id="main">
+    <!-- parallax sections -->
+    <main>
+        <div
+            class="min-h-screen parallax-window"
+            data-parallax="scroll"
+            data-bleed="8"
+            data-image-src="/images/parallax/pl-11.jpg"
+        >
+        </div>
+
+        <section
+            class="h-screen flex items-center parallax-window"
+            data-parallax="scroll"
+            data-bleed="0"
+            data-image-src="/images/parallax/pl-2.jpg"
+        >
+            <div class="w-full ml-4 mx-auto px-8">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl text-white uppercase font-light pl-2"
+                >
+                    lightroom presets
+                </h1>
+                <a
+                    href="/photo-preset"
+                    class="pl-2 inline-block text-yellow-400 uppercase font-bold text-base md:text-lg underline"
+                    >shop presets →</a
+                >
+            </div>
+        </section>
+
+        <section
+            class="h-screen flex items-center parallax-window"
+            data-parallax="scroll"
+            data-bleed="0"
+            data-image-src="/images/parallax/pl-3.jpg"
+        >
+            <div class="w-full ml-4 mx-auto px-8">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl text-white uppercase font-light pl-2"
+                >
+                    limited edition<br />prints
+                </h1>
+                <a
+                    href="/prints"
+                    class="pl-2 inline-block text-yellow-400 uppercase font-bold text-base md:text-lg underline"
+                    >shop prints →</a
+                >
+            </div>
+        </section>
+
+        <section
+            class="h-screen flex items-center parallax-window"
+            data-parallax="scroll"
+            data-bleed="0"
+            data-image-src="/images/parallax/pl-4.jpg"
+        >
+            <div class="w-full ml-4 mx-auto px-8">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl text-white uppercase font-light pl-2"
+                >
+                    motion graphics
+                </h1>
+                <a
+                    href="/motion-gfx"
+                    class="pl-2 inline-block text-yellow-400 uppercase font-bold text-base md:text-lg underline"
+                    >shop motion packs →</a
+                >
+            </div>
+        </section>
+
+        <section
+            class="h-screen flex items-center parallax-window"
+            data-parallax="scroll"
+            data-bleed="0"
+            data-image-src="/images/parallax/pl-5.jpg"
+        >
+            <div class="w-full ml-4 mx-auto px-8">
+                <span class="flex flex-col items-center gap-4">
+                    <strong
+                        class="text-5xl md:text-6xl lg:text-7xl text-white font-extrabold uppercase"
+                        >jack's pirate life</strong
+                    >
+                    <Link
+                        href="/pirates-life"
+                        target="_blank"
+                        class="bg-yellow-400 text-black px-6 py-3 font-bold uppercase"
+                    >
+                        limited edition drops
+                    </Link>
+                </span>
+            </div>
+        </section>
+
+        <section
+            class="h-screen flex items-center parallax-window"
+            data-parallax="scroll"
+            data-bleed="0"
+            data-image-src="/images/parallax/pl-last.jpg"
+        >
+            <div class="w-full ml-4 mx-auto px-8">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl text-white uppercase font-light pl-2"
+                >
+                    youtube
+                </h1>
+                <a
+                    href="/photo-preset"
+                    class="pl-2 inline-block text-yellow-400 uppercase font-bold text-base md:text-lg underline"
+                    >see more vids→</a
+                >
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- parallax scroll using scroll (kept from original) -->
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+    defer></script>
+<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js" defer
+></script>

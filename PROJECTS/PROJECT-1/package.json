@@ -1,0 +1,22 @@
+{
+  "name": "project-1",
+  "version": "1.0.0",
+  "description": "Portfolio Website",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "live-server src --port=3000",
+    "build": "npm run copy-assets",
+    "copy-assets": "xcopy /E /I /Y src\\* public\\"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "frontend"
+  ],
+  "author": "Jagmohan singh malhi",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
