@@ -1,5 +1,6 @@
 ---
 import Link from "../components/Link.astro";
+
 ---
 
 <!--
@@ -12,6 +13,7 @@ Notes: Ensure Tailwind and Remixicon are available in the project and the refere
 images (pl-11.jpg, pl-2.jpg, etc.) are in the site's `public/` folder.
 -->
 <div id="main">
+    
     <!-- parallax sections -->
     <main>
         <div
@@ -34,10 +36,10 @@ images (pl-11.jpg, pl-2.jpg, etc.) are in the site's `public/` folder.
                 >
                     lightroom presets
                 </h1>
-                <a
+                <Link
                     href="/photo-preset"
                     class="pl-2 inline-block text-yellow-400 uppercase font-bold text-base md:text-lg underline"
-                    >shop presets →</a
+                    >shop presets →</Link
                 >
             </div>
         </section>

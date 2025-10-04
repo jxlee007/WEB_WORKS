@@ -1,15 +1,58 @@
 ---
 import Parallax from '../layouts/Parallax.astro';
 import Footer from '../components/Footer.astro'
-import Nav from '../components/Nav.astro'
+import Link from '../components/Link.astro';
 import Layout from '../layouts/Layout.astro';
+
+const logo = "/images/digisign/ds1-white.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <Nav />
+    <nav class="absolute top-0 left-0 right-0 z-10">
+    <div class="w-full mx-auto flex items-center justify-between px-2 py-6">
+      <div id="digisign" class="cursor-pointer w-28">
+        <Link href="/">
+          <img
+            src={logo ?? "/images/digisign/ds1-white.png"}
+            alt="autograph"
+            class="w-full"
+          />
+        </Link>
+      </div>
+
+      <div id="side" class="flex items-end space-x-4">
+        <div id="list" class="relative">
+          <Link
+            href="/shop"
+            id="hoverlist"
+            class="uppercase text-white tracking-wide text-sm">shop</Link
+          >
+          <span
+            id="hiddenlist"
+            class="absolute left-0 mt-2 hidden bg-transparent"
+          >
+            <!-- kept for parity with original markup; show via hover JS/CSS if desired -->
+            <Link href="/shop" class="block">all</Link>
+            <Link href="/prints" class="block">prints</Link>
+            <Link href="/photo-preset" class="block">lr presets</Link>
+            <Link href="/luts" class="block">video luts</Link>
+            <Link href="/motion-gfx" class="block">motion gfx</Link>
+            <Link href="/sound-packs" class="block">sound fx</Link>
+            <Link href="/gear" class="block">gear</Link>
+          </span>
+        </div>
+
+        <Link href="/collabs" class="uppercase text-white text-sm">collabs</Link
+        >
+        <Link href="/about" class="uppercase text-white text-sm">about</Link>
+        <Link href="/contact" class="uppercase text-white text-sm">contact</Link
+        >
+      </div>
+    </div>
+  </nav>
   <Parallax />
   <Footer />
 </Layout>

@@ -2,6 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+/*
+  LOCAL SELF-HOSTED FONT (optional)
+
+  After you download the Nunito font files into `public/fonts/` (see
+  `public/fonts/README.md` for an automated PowerShell script), you can
+  uncomment the @font-face declarations below to serve fonts locally and
+  avoid external Google Fonts requests.
+
+  The PowerShell script saves the WOFF2 files into public/fonts and you can
+  use the exact filenames it creates. Example local filenames used below are
+  placeholders (Nunito-400.woff2, Nunito-700.woff2, ...). Update them if the
+  downloader uses different names.
+*/
+
+/*
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/static/Nunito-Black.ttf') format('truetype');
+}
+
+/* Optional: italic variants are available under /fonts/static/*Italic.ttf if you need them */
+
+
 /* accordian */
 
 .transition,
@@ -205,12 +282,14 @@ h2 {
     font-size: 2.2vw;
     text-transform: capitalize;
     font-weight: 300;
+  color: black;
 }
 
 #form p {
     font-size: 1.1vw;
     font-weight: 100;
     margin: 1.3vw 0vw;
+  color: black;
 }
 
 #form span {
@@ -288,6 +367,8 @@ h2 {
     position: absolute;
     transition-duration: .4s;
     z-index: 999;
+  /* allow the popup to expand to fit its longest item */
+  min-width: max-content;
 }
 
 #list #hiddenlist a:hover {
@@ -311,6 +392,8 @@ h2 {
     line-height: 1.5vw;
     font-size: .9vw;
     font-weight: 400;
+  /* prevent text from wrapping so each item stays on one line */
+  white-space: nowrap;
 }
 
 #hoverlist:hover:after+#hiddenlist {
@@ -357,3 +440,28 @@ nav {
     color: lightgrey;
 }
 
+/* Hide scrollbar helper: add the class `no-scrollbar` to any scrollable element
+   to hide native scrollbars while preserving scroll behavior. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: auto; /* allow scrolling while the scrollbar is hidden */
+  /* legacy/experimental: overflow: -moz-scrollbars-none; */
+}
+
+/* Allow applying the helper to the root/html/body to hide the page scrollbar
+   while keeping scrolling. Add the class `no-scrollbar` to the <html> or
+   <body> element (example: <body class="no-scrollbar">). */
+html.no-scrollbar,
+body.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: auto; /* keep scrolling enabled */
+}
+html.no-scrollbar::-webkit-scrollbar,
+body.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

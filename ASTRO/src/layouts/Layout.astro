@@ -1,22 +1,26 @@
 ---
 import "../styles/global.css";
-export interface Props { title?: string }
+export interface Props {
+	title?: string;
+}
 const title = Astro.props.title ?? "Photographer's Portfolio";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>{title}</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet" />
-	<slot name="head" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<!-- Using local Nunito fonts from /public/fonts/static/ -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+			rel="stylesheet"
+		/>
+		<slot name="head" />
 	</head>
-	<body class="antialiased font-sans">
-	<slot />
+    <body class="antialiased font-sans no-scrollbar">
+		<slot />
 	</body>
 </html>
