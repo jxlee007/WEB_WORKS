@@ -268,8 +268,8 @@ const allowSelection = hasSizes && !(print.cta?.disabled ?? false);
 	<main class="px-4 sm:px-8 py-10">
 		<section class="max-w-7xl mx-auto">
 			<Gallery images={galleryImages}>
-				<div slot="meta" class="space-y-6 md:pr-10">
-					<div class="space-y-2">
+				<div slot="meta" class="space-y-6 ">
+					<div class="space-y-3">
 						{print.collection ? (
 							<p class="text-xs uppercase tracking-[0.35em] text-gray-500">{print.collection}</p>
 						) : null}
@@ -282,79 +282,82 @@ const allowSelection = hasSizes && !(print.cta?.disabled ?? false);
 							))}
 						</div>
 					) : null}
-					{print.edition ? (
-						<div class="space-y-3">
-							{print.edition.intro ? (
-								<p class="font-semibold text-sm uppercase tracking-wide text-gray-700">{print.edition.intro}</p>
-							) : null}
-							{print.edition.sizes && print.edition.sizes.length ? (
-								<ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
-									{print.edition.sizes.map((size) => (
-										<li>
-											<strong class="font-medium text-gray-800">{size.quantity ? `${size.quantity} ` : ""}{size.label}</strong>
-											{size.dimensions ? ` (image size ${size.dimensions})` : ""}
-											{size.priceLabel ? ` — ${size.priceLabel}` : ""}
-										</li>
-									))}
-								</ul>
-							) : null}
-						</div>
+				</div>
+			</Gallery>
+		</section>
+
+		<section class="max-w-6xl mx-auto mt-8 md:-mt-40 space-y-6">
+			{print.edition ? (
+				<div class="space-y-3">
+					{print.edition.intro ? (
+						<p class="font-semibold text-sm uppercase tracking-wide text-gray-700">{print.edition.intro}</p>
 					) : null}
-					{print.features && print.features.length ? (
+					{print.edition.sizes && print.edition.sizes.length ? (
 						<ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
-							{print.features.map((item) => (
-								<li>{item}</li>
+							{print.edition.sizes.map((size) => (
+								<li>
+									<strong class="font-medium text-gray-800">{size.quantity ? `${size.quantity} ` : ""}{size.label}</strong>
+									{size.dimensions ? ` (image size ${size.dimensions})` : ""}
+									{size.priceLabel ? ` — ${size.priceLabel}` : ""}
+								</li>
 							))}
 						</ul>
 					) : null}
-					{print.notes && print.notes.length ? (
-						<div class="space-y-2 text-sm text-gray-600">
-							{print.notes.map((note) => (
-								<p>{note}</p>
-							))}
-						</div>
-					) : null}
-					{print.edition?.priceSummary ? (
-						<p class="text-base font-semibold text-gray-900">{print.edition.priceSummary}</p>
-					) : null}
-					{allowSelection ? (
-						<div class="space-y-3 max-w-xs">
-							<label for={selectId} class="block text-xs uppercase tracking-wider text-gray-500">
-								Select size
-							</label>
-							<select
-								id={selectId}
-								name="edition-size"
-								class="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
-							>
-								{print.edition?.sizes?.map((size) => (
-									<option value={size.id}>
-										{size.label}
-										{size.dimensions ? ` (${size.dimensions})` : ""}
-										{size.priceLabel ? ` — ${size.priceLabel}` : ""}
-									</option>
-								))}
-							</select>
-						</div>
-					) : null}
-					{print.cta ? (
-						<div class="space-y-2">
-							<button
-								type="button"
-								class={`inline-flex items-center justify-center rounded bg-yellow-400 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-gray-900 transition hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 ${
-									print.cta.disabled ? "cursor-not-allowed opacity-60" : ""
-								}`}
-								disabled={print.cta.disabled ?? false}
-							>
-								{print.cta.label}
-							</button>
-							{print.cta.note ? (
-								<p class="text-xs uppercase tracking-wider text-gray-500">{print.cta.note}</p>
-							) : null}
-						</div>
+				</div>
+			) : null}
+			{print.features && print.features.length ? (
+				<ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+					{print.features.map((item) => (
+						<li>{item}</li>
+					))}
+				</ul>
+			) : null}
+			{print.notes && print.notes.length ? (
+				<div class="space-y-2 text-sm text-gray-600">
+					{print.notes.map((note) => (
+						<p>{note}</p>
+					))}
+				</div>
+			) : null}
+			{print.edition?.priceSummary ? (
+				<p class="text-base font-semibold text-gray-900">{print.edition.priceSummary}</p>
+			) : null}
+			{allowSelection ? (
+				<div class="space-y-3 max-w-xs">
+					<label for={selectId} class="block text-xs uppercase tracking-wider text-gray-500">
+						Select size
+					</label>
+					<select
+						id={selectId}
+						name="edition-size"
+						class="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+					>
+						{print.edition?.sizes?.map((size) => (
+							<option value={size.id}>
+								{size.label}
+								{size.dimensions ? ` (${size.dimensions})` : ""}
+								{size.priceLabel ? ` — ${size.priceLabel}` : ""}
+							</option>
+						))}
+					</select>
+				</div>
+			) : null}
+			{print.cta ? (
+				<div class="space-y-2">
+					<button
+						type="button"
+						class={`inline-flex items-center justify-center rounded bg-yellow-400 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-gray-900 transition hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 ${
+							print.cta.disabled ? "cursor-not-allowed opacity-60" : ""
+						}`}
+						disabled={print.cta.disabled ?? false}
+					>
+						{print.cta.label}
+					</button>
+					{print.cta.note ? (
+						<p class="text-xs uppercase tracking-wider text-gray-500">{print.cta.note}</p>
 					) : null}
 				</div>
-			</Gallery>
+			) : null}
 		</section>
 
 		<section class="max-w-6xl mx-auto mt-12">
