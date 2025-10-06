@@ -1,0 +1,381 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import Gallery from "../../components/Gallery.astro";
+
+type GalleryImage = { src: string; thumb?: string; alt?: string };
+
+interface EditionSize {
+	id: string;
+	label: string;
+	dimensions?: string;
+	priceLabel?: string;
+	quantity?: number;
+}
+
+interface PrintDetail {
+	slug: string;
+	title: string;
+	collection?: string;
+	description: string[];
+	edition?: {
+		intro?: string;
+		total?: number;
+		sizes?: EditionSize[];
+		priceSummary?: string;
+	};
+	features?: string[];
+	notes?: string[];
+	gallery?: GalleryImage[];
+	supportingImages?: GalleryImage[];
+	paperInfo?: string;
+	disclaimers?: string[];
+	cta?: {
+		label: string;
+		note?: string;
+		disabled?: boolean;
+	};
+}
+
+export const defaultPaperInfo =
+	"Printed on fine art archival photo matte paper rating up to 175 years. PH neutral, Acid and OBA free.";
+
+export const defaultDisclaimers = [
+	"All prints come unframed, framed images shown for a visual sense of scale.",
+	"Printed and shipped from USA.",
+	"All sales final.",
+];
+
+export const defaultFeatures = [
+	'2" outside white border on all prints.',
+	"Certificate of Authenticity Plaque Included",
+];
+
+export const createBaseSizes = (): EditionSize[] => [
+	{ id: "small", label: "Small", dimensions: "16.5″ × 11″", priceLabel: "$250", quantity: 150 },
+	{ id: "medium", label: "Medium", dimensions: "20″ × 13.4″", priceLabel: "$450", quantity: 75 },
+	{ id: "large", label: "Large", dimensions: "30″ × 20″", priceLabel: "$700", quantity: 25 },
+];
+
+export const getPrintEntries = (): PrintDetail[] => [
+	{
+		slug: "ford-gt",
+		title: "Ford GT",
+		collection: "Automotive Series",
+		description: [
+			"Finally got to shoot this amazing piece of automotive engineering in the famous Salt Flats. It feels like another planet out there. We were blessed with the most incredible skies and sunset I’ve seen in a good long while.",
+			"Driving out, flanked by nothing but stark white vistas and deep navy skies, music cranked and windows down — incredible.",
+		],
+		edition: {
+			intro: "Limited Edition Prints (250 Total)",
+			sizes: createBaseSizes(),
+			priceSummary: "S $250 / M $450 / L $700",
+		},
+		features: defaultFeatures,
+		notes: ["Prints are NOT framed, please have professionally framed."],
+		gallery: [
+			{ src: "/images/prints/ford+gt+after.jpg", alt: "Ford GT print at dusk" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Ford GT print displayed in a living room" },
+			{ src: "/images/prints/redbull.jpg", alt: "Behind the scenes on the salt flats" },
+		],
+		supportingImages: [
+			{ src: "/images/prints/ford+gt+after.jpg", alt: "Ford GT limited edition print" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Ford GT print" },
+			{ src: "/images/prints/redbull.jpg", alt: "Crew capturing the Ford GT session" },
+		],
+		paperInfo: defaultPaperInfo,
+		disclaimers: defaultDisclaimers,
+		cta: { label: "Purchase" },
+	},
+	{
+		slug: "redbull",
+		title: "F1 Red Bull",
+		collection: "Automotive Series",
+		description: [
+			"Shot trackside during a golden-hour test session, this print is all about motion, grit, and the glow of carbon fiber under dusk light.",
+		],
+		edition: {
+			intro: "Limited Edition Prints (50 Total)",
+			sizes: [
+				{ id: "medium", label: "Medium", dimensions: "20″ × 13.4″", priceLabel: "$450", quantity: 25 },
+				{ id: "large", label: "Large", dimensions: "30″ × 20″", priceLabel: "$700", quantity: 25 },
+			],
+			priceSummary: "Sold out",
+		},
+		features: defaultFeatures,
+		notes: ["Every print was signed and numbered before selling out."],
+		gallery: [
+			{ src: "/images/prints/redbull.jpg", alt: "Red Bull F1 car print" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Red Bull print on display" },
+			{ src: "/images/prints/ford+gt+after.jpg", alt: "Salt flats sunset colorway" },
+		],
+		supportingImages: [
+			{ src: "/images/prints/redbull.jpg", alt: "Red Bull print detail" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Red Bull print" },
+			{ src: "/images/prints/ford+gt+after.jpg", alt: "Atmospheric dusk backdrop" },
+		],
+		paperInfo: defaultPaperInfo,
+		disclaimers: defaultDisclaimers,
+		cta: {
+			label: "Sold Out",
+			disabled: true,
+			note: "Join the waitlist to be notified if an edition returns.",
+		},
+	},
+	{
+		slug: "paris",
+		title: "Paris",
+		collection: "Travel Series",
+		description: [
+			"A moody sunrise over the Seine with the city still quiet. Soft light meets analog-inspired color for a timeless Parisian print.",
+		],
+		edition: {
+			intro: "Limited Edition Prints (23 Total)",
+			sizes: [
+				{ id: "medium", label: "Medium", dimensions: "20″ × 13.4″", priceLabel: "$320", quantity: 12 },
+				{ id: "large", label: "Large", dimensions: "30″ × 20″", priceLabel: "$520", quantity: 11 },
+			],
+			priceSummary: "M $320 / L $520",
+		},
+		features: defaultFeatures,
+		notes: ["Printed on demand within 7 business days."],
+		gallery: [
+			{ src: "/images/prints/parisbanner3k.jpg", alt: "Paris skyline print" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Paris print above a sofa" },
+			{ src: "/images/prints/mfog.jpg", alt: "Soft fog detail from the Paris morning" },
+		],
+		supportingImages: [
+			{ src: "/images/prints/parisbanner3k.jpg", alt: "Paris riverbank detail" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Living room with framed Paris print" },
+			{ src: "/images/prints/mfog.jpg", alt: "Texture study featured in the Paris series" },
+		],
+		paperInfo: defaultPaperInfo,
+		disclaimers: defaultDisclaimers,
+		cta: { label: "Purchase" },
+	},
+	{
+		slug: "morning-fog",
+		title: "Morning Fog",
+		collection: "Winter Series",
+		description: [
+			"Shot on a cold alpine morning, this piece balances cool blue tones with soft highlights drifting through the trees.",
+		],
+		edition: {
+			intro: "Limited Edition Prints (250 Total)",
+			sizes: createBaseSizes(),
+			priceSummary: "S $250 / M $450 / L $700",
+		},
+		features: defaultFeatures,
+		notes: ["Ships with a signed authenticity card."],
+		gallery: [
+			{ src: "/images/prints/mfog.jpg", alt: "Morning Fog print" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Morning Fog print in a studio" },
+			{ src: "/images/prints/parisbanner3k.jpg", alt: "Atmospheric companion image" },
+		],
+		supportingImages: [
+			{ src: "/images/prints/mfog.jpg", alt: "Fog rolling over pine trees" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Gallery wall featuring Morning Fog" },
+			{ src: "/images/prints/parisbanner3k.jpg", alt: "Complementary tones for Morning Fog" },
+		],
+		paperInfo: defaultPaperInfo,
+		disclaimers: defaultDisclaimers,
+		cta: { label: "Purchase" },
+	},
+	{
+		slug: "the-bucket-shot",
+		title: "The Bucket Shot",
+		collection: "Winter Series",
+		description: [
+			"An homage to the viral night in Banff that started the photographer’s winter obsession. Crisp stars, icy reflections, iconic canoe.",
+		],
+		edition: {
+			intro: "Limited Edition Prints (150 Total)",
+			sizes: [
+				{ id: "small", label: "Small", dimensions: "16.5″ × 11″", priceLabel: "$260", quantity: 90 },
+				{ id: "medium", label: "Medium", dimensions: "20″ × 13.4″", priceLabel: "$480", quantity: 40 },
+				{ id: "large", label: "Large", dimensions: "30″ × 20″", priceLabel: "$720", quantity: 20 },
+			],
+			priceSummary: "S $260 / M $480 / L $720",
+		},
+		features: defaultFeatures,
+		notes: ["Includes a behind-the-scenes note from the original shoot."],
+		gallery: [
+			{ src: "/images/prints/bucket+shot.jpg", alt: "The Bucket Shot print" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Bucket Shot print" },
+			{ src: "/images/prints/mfog.jpg", alt: "Complementary winter scene" },
+		],
+		supportingImages: [
+			{ src: "/images/prints/bucket+shot.jpg", alt: "Bucket Shot lake reflection" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Bucket Shot in studio" },
+			{ src: "/images/prints/mfog.jpg", alt: "Companion winter print" },
+		],
+		paperInfo: defaultPaperInfo,
+		disclaimers: defaultDisclaimers,
+		cta: { label: "Purchase" },
+	},
+	{
+		slug: "strength-in-numbers",
+		title: "Strength In Numbers",
+		collection: "Winter Series",
+		description: [
+			"An ode to the sled crew lined up in a perfect stagger under heavy snow. Momentum, teamwork, and texture in one frame.",
+		],
+		edition: {
+			intro: "Limited Edition Prints (250 Total)",
+			sizes: createBaseSizes(),
+			priceSummary: "S $250 / M $450 / L $700",
+		},
+		features: defaultFeatures,
+		notes: ["Portion of proceeds donated to avalanche safety programs."],
+		gallery: [
+			{ src: "/images/prints/strenght.jpg", alt: "Strength In Numbers print" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Strength In Numbers framed display" },
+			{ src: "/images/prints/mfog.jpg", alt: "Complimentary winter palette" },
+		],
+		supportingImages: [
+			{ src: "/images/prints/strenght.jpg", alt: "Snowmobile team captured in Strength In Numbers" },
+			{ src: "/images/prints/limited-edt.jpg", alt: "Framed Strength In Numbers print" },
+			{ src: "/images/prints/mfog.jpg", alt: "Winter mood board" },
+		],
+		paperInfo: defaultPaperInfo,
+		disclaimers: defaultDisclaimers,
+ 		cta: { label: "Purchase" },
+	},
+];
+
+export async function getStaticPaths() {
+	const entries = getPrintEntries();
+	return entries.map((print) => ({
+		params: { slug: print.slug },
+		props: { print },
+	}));
+}
+
+const { print } = Astro.props as { print: PrintDetail };
+
+const selectId = `edition-${print.slug}`;
+const galleryImages = print.gallery && print.gallery.length > 0 ? print.gallery : undefined;
+const supportingImages = print.supportingImages && print.supportingImages.length > 0 ? print.supportingImages : [];
+const paperInfo = print.paperInfo ?? defaultPaperInfo;
+const disclaimers = print.disclaimers ?? defaultDisclaimers;
+const hasSizes = Boolean(print.edition?.sizes && print.edition.sizes.length);
+const allowSelection = hasSizes && !(print.cta?.disabled ?? false);
+---
+
+<Layout title={`${print.title} — PM Prints`}>
+	<Nav logo="/images/digisign/ds1-black.png" />
+	<main class="px-4 sm:px-8 py-10">
+		<section class="max-w-7xl mx-auto">
+			<Gallery images={galleryImages}>
+				<div slot="meta" class="space-y-6 md:pr-10">
+					<div class="space-y-2">
+						{print.collection ? (
+							<p class="text-xs uppercase tracking-[0.35em] text-gray-500">{print.collection}</p>
+						) : null}
+						<h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900">{print.title}</h1>
+					</div>
+					{print.description.length ? (
+						<div class="space-y-4 text-gray-600 leading-relaxed">
+							{print.description.map((paragraph) => (
+								<p>{paragraph}</p>
+							))}
+						</div>
+					) : null}
+					{print.edition ? (
+						<div class="space-y-3">
+							{print.edition.intro ? (
+								<p class="font-semibold text-sm uppercase tracking-wide text-gray-700">{print.edition.intro}</p>
+							) : null}
+							{print.edition.sizes && print.edition.sizes.length ? (
+								<ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+									{print.edition.sizes.map((size) => (
+										<li>
+											<strong class="font-medium text-gray-800">{size.quantity ? `${size.quantity} ` : ""}{size.label}</strong>
+											{size.dimensions ? ` (image size ${size.dimensions})` : ""}
+											{size.priceLabel ? ` — ${size.priceLabel}` : ""}
+										</li>
+									))}
+								</ul>
+							) : null}
+						</div>
+					) : null}
+					{print.features && print.features.length ? (
+						<ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+							{print.features.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					) : null}
+					{print.notes && print.notes.length ? (
+						<div class="space-y-2 text-sm text-gray-600">
+							{print.notes.map((note) => (
+								<p>{note}</p>
+							))}
+						</div>
+					) : null}
+					{print.edition?.priceSummary ? (
+						<p class="text-base font-semibold text-gray-900">{print.edition.priceSummary}</p>
+					) : null}
+					{allowSelection ? (
+						<div class="space-y-3 max-w-xs">
+							<label for={selectId} class="block text-xs uppercase tracking-wider text-gray-500">
+								Select size
+							</label>
+							<select
+								id={selectId}
+								name="edition-size"
+								class="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+							>
+								{print.edition?.sizes?.map((size) => (
+									<option value={size.id}>
+										{size.label}
+										{size.dimensions ? ` (${size.dimensions})` : ""}
+										{size.priceLabel ? ` — ${size.priceLabel}` : ""}
+									</option>
+								))}
+							</select>
+						</div>
+					) : null}
+					{print.cta ? (
+						<div class="space-y-2">
+							<button
+								type="button"
+								class={`inline-flex items-center justify-center rounded bg-yellow-400 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-gray-900 transition hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 ${
+									print.cta.disabled ? "cursor-not-allowed opacity-60" : ""
+								}`}
+								disabled={print.cta.disabled ?? false}
+							>
+								{print.cta.label}
+							</button>
+							{print.cta.note ? (
+								<p class="text-xs uppercase tracking-wider text-gray-500">{print.cta.note}</p>
+							) : null}
+						</div>
+					) : null}
+				</div>
+			</Gallery>
+		</section>
+
+		<section class="max-w-6xl mx-auto mt-12">
+			<div class="text-center space-y-6">
+				<p class="text-gray-600 text-sm sm:text-base leading-relaxed">{paperInfo}</p>
+				{supportingImages.length ? (
+					<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+						{supportingImages.map((image) => (
+							<figure class="aspect-[3/4] overflow-hidden rounded-md bg-gray-100">
+								<img src={image.src} alt={image.alt ?? ""} class="h-full w-full object-cover" />
+							</figure>
+						))}
+					</div>
+				) : null}
+				<div class="space-y-1 text-xs uppercase tracking-wider text-gray-500">
+					{disclaimers.map((entry) => (
+						<p>{entry}</p>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

@@ -2,52 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-
-const products = [
-  {
-    title: "photo presets",
-    subtitle: "custom preset pack for adobe lightroom cc.",
-    image: "/images/shop/shop-1.jpg",
-    href: "/photo-preset"
-  },
-  {
-    title: "pm prints",
-    subtitle: "limited edition archival prints.",
-    image: "/images/shop/shop-2.jpg",
-    href: "/prints"
-  },
-  {
-    title: "motion gfx",
-    subtitle: "4 custom packs of effects for videos",
-    image: "/images/shop/shop-3.jpg",
-    href: "/motion-gfx"
-  },
-  {
-    title: "video luts",
-    subtitle: "color gradient tools for adobe premiere cc, fcpx, ae.",
-    image: "/images/shop/shop-4.jpg",
-    href: "/luts"
-  },
-  {
-    title: "sound packs",
-    subtitle: "killer sounds to take your project to the next level.",
-    image: "/images/shop/shop-5.jpg",
-    href: "/sound-packs"
-  },
-  {
-    title: "pm gear",
-    subtitle: "custom made products.",
-    image: "/images/shop/shop-6.jpg",
-    href: "/gear"
-  },
-  {
-    title: "jack's pirate life",
-    subtitle: "limited edition drops - fly the flag.",
-    image: "/images/shop/shop-7.jpg",
-    href: "/pirates-life",
-    target: "_blank"
-  }
-];
+import { products } from "./shop/products.js";
 
 
 
@@ -65,7 +20,7 @@ const products = [
       {products.map((product) => (
         <div class="relative flex justify-center py-4">
           <a 
-            href={product.href}
+            href={`/shop/${product.slug}`}
             target={product.target || "_self"}
             rel={product.target ? "noopener noreferrer" : undefined}
             class="relative block w-full max-w-6xl group"
