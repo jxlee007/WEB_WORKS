@@ -1,0 +1,21 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "Static Website Project 2",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npx live-server . --port=3001",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "static",
+    "website",
+    "html"
+  ],
+  "author": "Jagmohan singh malhi",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

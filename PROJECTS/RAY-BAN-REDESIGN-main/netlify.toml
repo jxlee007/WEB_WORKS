@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build step required'"
+
+[build.ignore]
+  # Only build if there are changes in the RAY-BAN-REDESIGN-main directory
+  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- RAY-BAN-REDESIGN-main"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

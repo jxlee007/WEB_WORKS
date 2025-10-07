@@ -1,0 +1,21 @@
+{
+  "name": "project-5-sundown",
+  "version": "1.0.0",
+  "description": "Sundown Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npx live-server . --port=3004",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "static",
+    "website",
+    "sundown"
+  ],
+  "author": "Jagmohan singh malhi",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

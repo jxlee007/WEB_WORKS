@@ -1,0 +1,15 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.ignore]
+  # Only build if there are changes in the Tiny-todos-main directory
+  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- Tiny-todos-main"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"

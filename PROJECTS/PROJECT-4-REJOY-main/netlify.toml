@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build step required'"
+
+[build.ignore]
+  # Only build if there are changes in the PROJECT-4-REJOY-main directory
+  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- PROJECT-4-REJOY-main"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

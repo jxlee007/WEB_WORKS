@@ -1,0 +1,21 @@
+{
+  "name": "project-4-rejoy",
+  "version": "1.0.0",
+  "description": "Rejoy Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npx live-server . --port=3003",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "static",
+    "website",
+    "rejoy"
+  ],
+  "author": "Jagmohan singh malhi",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

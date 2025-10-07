@@ -1,0 +1,22 @@
+{
+  "name": "ray-ban-redesign",
+  "version": "1.0.0",
+  "description": "Ray-Ban Redesign Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npx live-server . --port=3005",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "static",
+    "website",
+    "ray-ban",
+    "redesign"
+  ],
+  "author": "Jagmohan singh malhi",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

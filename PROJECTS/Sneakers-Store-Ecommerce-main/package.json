@@ -1,0 +1,22 @@
+{
+  "name": "sneakers-store-ecommerce",
+  "version": "1.0.0",
+  "description": "Sneakers Store Ecommerce Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npx live-server . --port=3006",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "static",
+    "website",
+    "ecommerce",
+    "sneakers"
+  ],
+  "author": "Jagmohan singh malhi",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

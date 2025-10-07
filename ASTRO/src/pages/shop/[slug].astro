@@ -47,24 +47,43 @@ const { product } = Astro.props;
                     {(() => {
                         const productsList = product.layout.products || [];
                         const count = productsList.length;
-                            const cols = Math.min(Math.max(count, 1), 4);
-                            // Responsive grid: 1 on xs, 2 on sm, up to `cols` on md (tablet/laptop) and same on lg
-                            const responsiveColsClass = `grid-cols-2 sm:grid-cols-3 md:grid-cols-4`;
+
+                        const responsiveColsClass =
+                            count >= 4
+                                ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
+                                : count === 3
+                                  ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+                                  : count === 2
+                                    ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-2"
+                                    : "grid-cols-1";
+
                         return (
-                            <div 
-                            class={`grid gap-4 items-start justify-center ${responsiveColsClass}`}
-                                        >
-                                {productsList.map((item, i) => (
-                                    <article class="text-center">
-                                        <div class="w-full flex justify-center">
-                                                <div class="w-full max-w-xs sm:max-w-sm md:max-w-md sm:h-64 md:h-72 lg:h-80 bg flex items-center justify-center overflow-hidden rounded">
+                            <div
+                                class={`grid gap-4 items-center justify-center justify-items-center ${responsiveColsClass}`}
+                            >
+                                {productsList.map((item) => {
+                                    const content = (
+                                        <article class="text-center space-y-3 transition-transform duration-200 group-hover:-translate-y-1">
+                                            <div class="w-full flex justify-center">
+                                                <div class="w-full max-w-xs sm:max-w-sm md:max-w-md sm:h-64 md:h-72 lg:h-80 flex items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-transparent group-hover:ring-gray-200">
                                                     <img src={encodeURI(item.image)} alt={item.title} class="w-full h-full object-cover" />
                                                 </div>
                                             </div>
+                                            <h3 class="text-md text-gray-700">{item.title}</h3>
+                                        </article>
+                                    );
 
-                                            <h3 class="text-md text-gray-700 mt-3">{item.title}</h3>
-                                    </article>
-                                ))}
+                                    return item.href ? (
+                                        <a
+                                            href={item.href}
+                                            class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900"
+                                        >
+                                            {content}
+                                        </a>
+                                    ) : (
+                                        <div class="group block">{content}</div>
+                                    );
+                                })}
                             </div>
                         );
                     })()}

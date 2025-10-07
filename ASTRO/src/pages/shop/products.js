@@ -11,6 +11,7 @@ export const products = [
 				{
 					image: "/images/photo-lr-presets/2021v4.jpg",
 					title: "PM Lightroom V4 Presets 2021",
+					href: "/products/pm-lightroom-presets-v4",
 				},
 				{
 					image: "/images/photo-lr-presets/2019v3.jpg",
@@ -50,6 +51,7 @@ export const products = [
 				{
 					image: "/images/motion-fx/glitchbox.jpg",
 					title: "Glitch FX",
+					href: "/products/glitch-mgfx-pack",
 				},
 				{
 					image: "/images/motion-fx/mattebox.jpg",
@@ -74,6 +76,7 @@ export const products = [
 				{
 					image: "/images/cineluts/cinelutsv1.jpg",
 					title: "Cine LUTS V1",
+					href: "/products/cine-luts-v1",
 				},
 				{
 					image: "/images/cineluts/cinelutsv2.jpg",
@@ -94,6 +97,7 @@ export const products = [
 				{
 					image: "/images/pm-sound-pack-v1.jpg",
 					title: "Sound Pack V1",
+					href: "/products/sound-pack-v1",
 				},
 			],
 		},
@@ -110,10 +114,12 @@ export const products = [
 				{
 					image: "/images/gear/gear-1.jpg",
 					title: "PM Camera Tool",
+					href: "/products/pm-camera-tool",
 				},
 				{
 					image: "/images/gear/gear-2.jpg",
 					title: "Signature Lens IDs",
+					href: "/products/signature-lens-ids",
 				},
 			],
 		},

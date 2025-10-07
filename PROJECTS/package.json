@@ -1,0 +1,43 @@
+{
+  "name": "web-works",
+  "version": "1.0.0",
+  "description": "Monorepo for multiple website projects hosted on Netlify",
+  "private": true,
+  "scripts": {
+    "build:project-1": "cd PROJECT-1 && npm install && npm run build",
+    "build:project-2": "cd PROJECT-2 && npm install && npm run build",
+    "build:project-3": "cd PROJECT-3-DUO-main && npm install && npm run build",
+    "build:project-4": "cd PROJECT-4-REJOY-main && npm install && npm run build",
+    "build:project-5": "cd PROJECT-5-Sundown-main && npm install && npm run build",
+    "build:ray-ban": "cd RAY-BAN-REDESIGN-main && npm install && npm run build",
+    "build:sneakers": "cd Sneakers-Store-Ecommerce-main && npm install && npm run build",
+    "build:tiny-todos": "cd Tiny-todos-main && npm install && npm run build",
+    "install:all": "npm install && cd PROJECT-1 && npm install && cd ../PROJECT-2 && npm install && cd ../PROJECT-3-DUO-main && npm install && cd ../PROJECT-4-REJOY-main && npm install && cd ../PROJECT-5-Sundown-main && npm install && cd ../RAY-BAN-REDESIGN-main && npm install && cd ../Sneakers-Store-Ecommerce-main && npm install && cd ../Tiny-todos-main && npm install",
+    "dev:project-1": "cd PROJECT-1 && npm run dev",
+    "dev:project-2": "cd PROJECT-2 && npm run dev",
+    "dev:project-3": "cd PROJECT-3-DUO-main && npm run dev",
+    "dev:project-4": "cd PROJECT-4-REJOY-main && npm run dev",
+    "dev:project-5": "cd PROJECT-5-Sundown-main && npm run dev",
+    "dev:ray-ban": "cd RAY-BAN-REDESIGN-main && npm run dev",
+    "dev:sneakers": "cd Sneakers-Store-Ecommerce-main && npm run dev",
+    "dev:tiny-todos": "cd Tiny-todos-main && npm run dev",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "monorepo",
+    "netlify",
+    "multiple-sites"
+  ],
+  "author": "JXLEE",
+  "license": "MIT",
+  "workspaces": [
+    "PROJECT-1",
+    "PROJECT-2",
+    "PROJECT-3-DUO-main",
+    "PROJECT-4-REJOY-main",
+    "PROJECT-5-Sundown-main",
+    "RAY-BAN-REDESIGN-main",
+    "Sneakers-Store-Ecommerce-main",
+    "Tiny-todos-main"
+  ]
+}

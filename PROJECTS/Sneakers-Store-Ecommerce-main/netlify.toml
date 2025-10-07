@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build step required'"
+
+[build.ignore]
+  # Only build if there are changes in the Sneakers-Store-Ecommerce-main directory
+  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- Sneakers-Store-Ecommerce-main"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
